@@ -1,0 +1,65 @@
+<section class="grid grid-cols- md:grid-cols-2 gap-3">
+    
+    <div class="bg-white rounded shadow p-10 h-52">
+        
+        <h2> if: {{ showContent() }} </h2>
+
+        <button (click)="toggleContent()" class="p-2 bg-blue-500 rounded text-white ">
+            click me!
+        </button>
+
+
+        @if(showContent()) {
+            <p>Hola Mundo</p>
+        } @else {
+            <p>***********</p>
+        }
+
+    </div>
+
+    <!-- @switch -->
+    <div class="bg-white rounded shadow p-10 h-52">
+        
+        @switch ( grade() ) {
+            @case ('A') {
+                <p>Superior a 90</p>
+            } 
+            @case ('B') {
+                <p>Superior a 80</p>
+            }
+            @case ('F') {
+                <p>Reprobó</p>
+            }
+            @default {
+                <p>Nota...</p>
+            }
+        }
+
+    </div>
+
+</section>
+
+<section class="grid grid-cols-2 md:grid-cols-2 gap-3">
+    
+    <!-- @switch -->
+    <!-- <div class="bg-white rounded shadow p-10">
+        
+        @switch ( grade() ) {
+            @case ('A') {
+                <p>Superior a 90</p>
+            } 
+            @case ('B') {
+                <p>Superior a 80</p>
+            }
+            @case ('F') {
+                <p>Reprobó</p>
+            }
+            @default {
+                <p>Nota...</p>
+            }
+        }
+
+    </div> -->
+
+</section>
+
