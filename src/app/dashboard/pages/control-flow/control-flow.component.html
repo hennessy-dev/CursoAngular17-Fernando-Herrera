@@ -18,25 +18,55 @@
     </div>
 
     <!-- @switch -->
-    <div class="bg-white rounded shadow p-10 h-52">
+    <div class="flex bg-white rounded shadow p-10 h-52 justify-center items-center">
         
+        <h2 class="m-2 font-semibold text-xl "> Grade:  [{{ grade() }}] -</h2>
+
         @switch ( grade() ) {
             @case ('A') {
-                <p>Superior a 90</p>
+                <p class="font-black text-xl text-blue-600">Superior a 90</p>
             } 
             @case ('B') {
-                <p>Superior a 80</p>
+                <p class="font-black text-xl text-blue-600">Superior a 80</p>
             }
             @case ('F') {
-                <p>Reprobó</p>
+                <p class="font-black text-xl text-red-600">Reprobó</p>
             }
             @default {
-                <p>Nota...</p>
+                <p class="font-black text-xl text-green-600">Nota...</p>
             }
         }
 
     </div>
 
+    <!-- @for -->
+    <div class="flex bg-white rounded shadow p-10 h-52 justify-center items-center">
+
+        <ul>
+            @for (framework of frameworks(); track framework; 
+                let i = $index, first = $first, last = $last, even = $even, odd = $odd, count = $count) {
+                <li [class] = " {
+                    'bg-red-180': even && !first && !last, 
+                    'bg-red-100': odd && !first && !last,
+                    'bg-purple-100': last || first
+                    } "
+                >{{ i + 1 }}/{{ count }} - {{framework}}</li>
+            }
+        </ul>
+
+    </div>
+
+    <div class="flex bg-white rounded shadow p-10 h-52 justify-center items-center">
+
+        <ul>
+            @for (framework of frameworks2(); track framework; let i = $index;) {
+                <li>{{framework}}</li>
+            } @empty {
+                <li>No hay frameworks en la lista</li>
+            }
+        </ul>
+
+    </div>
 </section>
 
 <section class="grid grid-cols-2 md:grid-cols-2 gap-3">
