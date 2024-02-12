@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import TitleComponent from '../../../shared/title/title.component';
 
 @Component({
   selector: 'app-users',
   standalone: true,
-  imports: [],
+  imports: [TitleComponent],
   templateUrl: './users.component.html',
   styles: ``
 })
